@@ -33,7 +33,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        context: ./${{ matrix.os }}
+        file: ./${{ matrix.os }}/Dockerfile
         push: true
         platforms: ${{ matrix.platform }}
         tags: ${{ env.REGISTRY }}/corite/tor:${{ matrix.os }}
