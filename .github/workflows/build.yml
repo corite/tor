@@ -20,8 +20,6 @@ jobs:
         - centos-stream9
         - debian
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
     - name: Set up Docker Buildx
@@ -35,7 +33,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        context: ./{{ matrix.os }}
+        context: ./${{ matrix.os }}
         push: true
-        plaforms: ${{ matrix.platform }}
+        platforms: ${{ matrix.platform }}
         tags: ${{ env.REGISTRY }}/corite/tor:${{ matrix.os }}
