@@ -2,7 +2,7 @@ FROM quay.io/centos/centos:stream9
 
 RUN dnf install epel-release
 RUN mkdir -p /etc/yum.repos.d
-COPY tor.repo /etc/yum.repos.d
+COPY ./centos-stream9/tor.repo /etc/yum.repos.d
 RUN dnf install tor
 
 # your torrc goes here
